@@ -200,16 +200,16 @@ public abstract class Item implements View.OnCreateContextMenuListener {
 			hwrap = LayoutParams.WRAP_CONTENT;
 		}
 
-		if ((layoutmode & LAYOUT_SHRINK) != 0) {
-			hwrap = LayoutParams.WRAP_CONTENT;
-		} else if ((layoutmode & LAYOUT_EXPAND) != 0) {
+		if ((layoutmode & LAYOUT_EXPAND) != 0) {
 			hwrap = LayoutParams.MATCH_PARENT;
+		} else if ((layoutmode & LAYOUT_SHRINK) != 0) {
+			hwrap = LayoutParams.WRAP_CONTENT;
 		}
 
-		if ((layoutmode & LAYOUT_VSHRINK) != 0) {
-			vwrap = LayoutParams.WRAP_CONTENT;
-		} else if ((layoutmode & LAYOUT_VEXPAND) != 0) {
+		if ((layoutmode & LAYOUT_VEXPAND) != 0) {
 			vwrap = LayoutParams.MATCH_PARENT;
+		} else if ((layoutmode & LAYOUT_VSHRINK) != 0) {
+			vwrap = LayoutParams.WRAP_CONTENT;
 		}
 
 		int horizontal = layoutmode & HORIZONTAL_GRAVITY_MASK;
@@ -217,10 +217,8 @@ public abstract class Item implements View.OnCreateContextMenuListener {
 			gravity = Gravity.CENTER_HORIZONTAL;
 		} else if (horizontal == LAYOUT_RIGHT) {
 			gravity = Gravity.RIGHT;
-			hwrap = LayoutParams.WRAP_CONTENT;
 		} else if (horizontal == LAYOUT_LEFT) {
 			gravity = Gravity.LEFT;
-			hwrap = LayoutParams.WRAP_CONTENT;
 		}
 
 		int vertical = layoutmode & VERTICAL_GRAVITY_MASK;
@@ -228,10 +226,8 @@ public abstract class Item implements View.OnCreateContextMenuListener {
 			gravity |= Gravity.CENTER_VERTICAL;
 		} else if (vertical == LAYOUT_BOTTOM) {
 			gravity |= Gravity.BOTTOM;
-			vwrap = LayoutParams.WRAP_CONTENT;
 		} else if (vertical == LAYOUT_TOP) {
 			gravity |= Gravity.TOP;
-			vwrap = LayoutParams.WRAP_CONTENT;
 		}
 
 		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(hwrap, vwrap);
