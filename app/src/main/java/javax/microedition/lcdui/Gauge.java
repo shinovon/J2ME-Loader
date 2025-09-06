@@ -64,7 +64,7 @@ public class Gauge extends Item {
 
 		this.interactive = interactive;
 		setMaxValue(maxValue);
-		setValue(value);
+		setValue(initialValue);
 	}
 
 	public int getValue() {
